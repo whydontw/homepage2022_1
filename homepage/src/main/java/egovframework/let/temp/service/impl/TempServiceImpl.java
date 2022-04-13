@@ -42,6 +42,24 @@ public class TempServiceImpl extends EgovAbstractServiceImpl implements TempServ
 		return tempMapper.selectTempList(vo);
 	}
 	
+	//임시데이터 등록하기
+	//tempMapper.insertTemp(vo)의 값이 void인데 우리는 string값으로 받아와야하기 때문에 return값이 null
+	public String insertTemp(TempVO vo) throws Exception{
+		tempMapper.insertTemp(vo);
+		return null;
+	}
+	
+	//임시데이터 수정하기
+	public void updateTemp(TempVO vo) throws Exception{
+		tempMapper.updateTemp(vo);
+	}
+	
+	//임시데이터 삭제하기
+	public void deleteTemp(TempVO vo) throws Exception{
+		tempMapper.deleteTemp(vo);
+	}
+	
+	
 /*	@Override
 	public TempVO selectTemp(TempVO vo) throws Exception {
 		return tempDAO.selectTemp(vo);

@@ -22,4 +22,25 @@
 	TEMP_VAL
 	FROM lettemp
 	</select>
+	
+	<insert id="insertTemp" parameterType="tempVO">
+	<!-- alias에서 선언을 해놨기 때문에 풀 url치지 않아도 tempVO 찾아갈 수 있음 -->
+	INSERT INTO lettemp(
+		TEMP_VAL
+	) VALUES (
+		#{tempVal}
+	)
+	</insert>
+	
+	<update id="updateTemp" parameterType="egovframework.let.temp.service.TempVO">
+	UPDATE lettemp SET
+	TEMP_VAL = #{tempVal}
+	WHERE TEMP_ID = #{tempId}
+	</update>
+	
+	<delete id="deleteTemp" parameterType="egovframework.let.temp.service.TempVO">
+	DELETE FROM lettemp
+	WHERE TEMP_ID = #{tempId}
+	</delete>
+	
 </mapper>
