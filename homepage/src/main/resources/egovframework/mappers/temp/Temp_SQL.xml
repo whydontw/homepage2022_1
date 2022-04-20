@@ -21,6 +21,7 @@
 	TEMP_ID,
 	TEMP_VAL
 	FROM lettemp
+	LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
 	</select>
 	
 	<insert id="insertTemp" parameterType="tempVO">
@@ -43,4 +44,7 @@
 	WHERE TEMP_ID = #{tempId}
 	</delete>
 	
+	<select id="selectTempListCnt" resultType="java.lang.Integer">
+		SELECT COUNT(*) CNT FROM lettemp
+	</select>
 </mapper>

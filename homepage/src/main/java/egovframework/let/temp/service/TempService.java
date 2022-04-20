@@ -1,8 +1,6 @@
 package egovframework.let.temp.service;
 
 import java.util.List;
-import java.util.Map;
-
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 public interface TempService {
@@ -20,5 +18,8 @@ public interface TempService {
 	
 	//임시데이터 삭제하기
 	public void deleteTemp(TempVO vo) throws Exception;
+	
+	//임시데이터 목록 수
+	public int selectTempListCnt(TempVO vo) throws Exception;
 	
 }
