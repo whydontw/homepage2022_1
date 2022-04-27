@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<!-- 글 등록 및 상세페이지 만들기 했음 -->
+
 
 <!DOCTYPE html>
 <html>
@@ -27,7 +27,7 @@
 				<td><c:out value="${result.tempId}"/></td>
 		<!-- 	<td><c:out value="${result.tempVal}"/></td>		-->
 				<td>
-					<c:url var="viewUrl" value="/temp/select.do">
+					<c:url var="viewUrl" value="/temp2/select.do">
 						<c:param name="tempId" value="${result.tempId}"/>
 					</c:url>
 					<a href="${viewUrl}"><c:out value="${result.tempVal}"/></a>
@@ -40,13 +40,13 @@
 	<!-- 페이징 화면 넘김 만들기 -->
 	<div id="paging_div">
 		<ul class="paging_align">
-			<c:url var="pageUrl" value="/temp/selectList.do?"/>
+			<c:url var="pageUrl" value="/temp2/selectList.do?"/>
 			<c:set var="pagingParam"><c:out value="${pageUrl}"/></c:set>
 			<ui:pagination paginationInfo="${paginationInfo}" type="image" jsFunction="${pagingParam}"/>
 		</ul>
 	</div>
 
-	<a href="/temp/tempRegist.do">등록하기</a>
+	<a href="/temp2/tempRegist.do">등록하기</a>
 	
 </body>
 </html>
