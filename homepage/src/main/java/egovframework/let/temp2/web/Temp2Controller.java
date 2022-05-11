@@ -102,20 +102,5 @@ public class Temp2Controller {
 		temp2Service.deleteTemp(searchVO);
 		return "forward:/temp2/selectList.do";
 	}
-	
-/*	
- 	//JSTL
-	@RequestMapping(value="/temp/jstl.do")
-	public String jstl(@ModelAttribute("searchVO") TempVO searchVO,
-			HttpServletRequest request, ModelMap model) throws Exception{
-		return "/temp/Jstl";
-	}
-	
-	//JSTL Import@
-	@RequestMapping(value="/temp/jstlImport.do")
-	public String jstlImport(@ModelAttribute("searchVO") TempVO searchVO,
-			HttpServletRequest request, ModelMap model) throws Exception{
-		return "/temp/JstlImport";
-*/
 	}
 

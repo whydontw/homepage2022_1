@@ -2,7 +2,6 @@ package egovframework.let.temp2.service.impl;
 import java.util.List;
 
 import egovframework.let.temp2.service.Temp2VO;
-//import egovframework.let.temp.service.TempVO;
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 

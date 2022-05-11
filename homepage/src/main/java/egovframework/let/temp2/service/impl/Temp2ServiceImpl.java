@@ -1,8 +1,7 @@
 package egovframework.let.temp2.service.impl;
 
 import java.util.List;
-//import egovframework.let.temp.service.TempService;
-//import egovframework.let.temp.service.TempVO;
+
 import egovframework.let.temp2.service.Temp2Service;
 import egovframework.let.temp2.service.Temp2VO;
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
@@ -23,8 +22,6 @@ public class Temp2ServiceImpl extends EgovAbstractServiceImpl implements Temp2Se
 	@Resource(name = "egovTempIdGnrService")
 	private EgovIdGnrService idgenService;	
 	
-//	@Resource(name = "tempDAO")
-//	private TempDAO tempDAO;
 	
 	@Override
 	public Temp2VO selectTemp(Temp2VO vo) throws Exception {

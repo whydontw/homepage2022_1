@@ -70,7 +70,7 @@ public class EgovBBSAttributeManageServiceImpl extends EgovAbstractServiceImpl i
     /**
      * 등록된 게시판 속성정보를 삭제한다.
      *
-     * @see egovframework.let.cop.bbs.Temp2Service.service.EgovBBSAttributeManageService#deleteBBSMasterInf(egovframework.let.cop.bbs.brd.service.BoardMaster)
+     * @see egovframework.let.cop.bbs.practiceService.service.EgovBBSAttributeManageService#deleteBBSMasterInf(egovframework.let.cop.bbs.brd.service.BoardMaster)
      */
     @Override
 	public void deleteBBSMasterInf(BoardMaster boardMaster) throws Exception {
@@ -87,7 +87,7 @@ public class EgovBBSAttributeManageServiceImpl extends EgovAbstractServiceImpl i
     /**
      * 신규 게시판 속성정보를 생성한다.
      *
-     * @see egovframework.let.cop.bbs.Temp2Service.service.EgovBBSAttributeManageService#insertBBSMastetInf(egovframework.let.cop.bbs.brd.service.BoardMaster)
+     * @see egovframework.let.cop.bbs.practiceService.service.EgovBBSAttributeManageService#insertBBSMastetInf(egovframework.let.cop.bbs.brd.service.BoardMaster)
      */
     @Override
 	public String insertBBSMastetInf(BoardMaster boardMaster) throws Exception {
@@ -158,7 +158,7 @@ public class EgovBBSAttributeManageServiceImpl extends EgovAbstractServiceImpl i
     /**
      * 게시판 속성 정보의 목록을 조회 한다.
      *
-     * @see egovframework.let.cop.bbs.Temp2Service.service.EgovBBSAttributeManageService#selectAllBBSMasteInf(egovframework.let.cop.bbs.brd.service.BoardMasterVO)
+     * @see egovframework.let.cop.bbs.practiceService.service.EgovBBSAttributeManageService#selectAllBBSMasteInf(egovframework.let.cop.bbs.brd.service.BoardMasterVO)
      */
     @Override
 	public List<BoardMasterVO> selectAllBBSMasteInf(BoardMasterVO vo) throws Exception {
@@ -168,7 +168,7 @@ public class EgovBBSAttributeManageServiceImpl extends EgovAbstractServiceImpl i
     /**
      * 게시판 속성정보 한 건을 상세조회한다.
      *
-     * @see egovframework.let.cop.bbs.Temp2Service.service.EgovBBSAttributeManageService#selectBBSMasterInf(egovframework.let.cop.bbs.brd.service.BoardMasterVO)
+     * @see egovframework.let.cop.bbs.practiceService.service.EgovBBSAttributeManageService#selectBBSMasterInf(egovframework.let.cop.bbs.brd.service.BoardMasterVO)
      */
     @Override
 	public BoardMasterVO selectBBSMasterInf(BoardMaster searchVO) throws Exception {
@@ -204,7 +204,7 @@ public class EgovBBSAttributeManageServiceImpl extends EgovAbstractServiceImpl i
     /**
      * 게시판 속성 정보의 목록을 조회 한다.
      *
-     * @see egovframework.let.cop.bbs.Temp2Service.service.EgovBBSAttributeManageService#selectBBSMasterInfs(egovframework.let.cop.bbs.brd.service.BoardMasterVO)
+     * @see egovframework.let.cop.bbs.practiceService.service.EgovBBSAttributeManageService#selectBBSMasterInfs(egovframework.let.cop.bbs.brd.service.BoardMasterVO)
      */
     @Override
 	public Map<String, Object> selectBBSMasterInfs(BoardMasterVO searchVO) throws Exception {
@@ -222,7 +222,7 @@ public class EgovBBSAttributeManageServiceImpl extends EgovAbstractServiceImpl i
     /**
      * 게시판 속성정보를 수정한다.
      *
-     * @see egovframework.let.cop.bbs.Temp2Service.service.EgovBBSAttributeManageService#updateBBSMasterInf(egovframework.let.cop.bbs.brd.service.BoardMaster)
+     * @see egovframework.let.cop.bbs.practiceService.service.EgovBBSAttributeManageService#updateBBSMasterInf(egovframework.let.cop.bbs.brd.service.BoardMaster)
      */
     @Override
 	public void updateBBSMasterInf(BoardMaster boardMaster) throws Exception {
@@ -253,7 +253,7 @@ public class EgovBBSAttributeManageServiceImpl extends EgovAbstractServiceImpl i
     /**
      * 템플릿의 유효여부를 점검한다.
      *
-     * @see egovframework.let.cop.bbs.Temp2Service.service.EgovBBSAttributeManageService#validateTemplate(egovframework.let.cop.bbs.brd.service.BoardMasterVO)
+     * @see egovframework.let.cop.bbs.practiceService.service.EgovBBSAttributeManageService#validateTemplate(egovframework.let.cop.bbs.brd.service.BoardMasterVO)
      */
     @Override
 	public void validateTemplate(BoardMasterVO searchVO) throws Exception {
