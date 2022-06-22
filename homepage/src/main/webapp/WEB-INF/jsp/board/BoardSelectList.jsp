@@ -26,6 +26,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
+
 <div class="container">
 	<div id="contents">
 		<%-- 검색영역 --%>
@@ -52,7 +53,7 @@
 		<div id="bbs_wrap">
 			<div class="total">
 			총 게시물
-			<strong><c:out value="${paginationInfo.totalRecordCount}"/></strong>건 현재페이지<strong><c:out value="${paginationInfo.currentPageNo}"/></strong><c:out value="${paginationInfo.totalPageCount}"/>			
+			<strong><c:out value="${paginationInfo.totalRecordCount}"/></strong>건 | 현재 페이지<strong><c:out value="${paginationInfo.currentPageNo}"/>/</strong><c:out value="${paginationInfo.totalPageCount}"/>			
 			</div>
 		<div class="bss_list">
 			<table class="list_table">
@@ -90,19 +91,29 @@
 				</c:forEach>
 				
 				<%-- 일반글 --%>
-				<c:forEach var="result" items="${resultList}" varStatus="status">
+				<c:forEach var="result" items="${resultList}" varStatus="status"> <!-- varStatus: 상태값 변수, 이중 forEach문 사용시 상태값 변수는 다르게 지정해야 됨 -->
 					<tr>
 						<td class="num">
+							<!-- 글번호 역순으로 나오게 하기 -->
+							<!-- totalRecordCount(총 수) searchVO.pageIndex-1(현재 페이지 번호) searchVO.pageUnit(한 페이지당 개수) status.count -->
 							<c:out value="${paginationInfo.totalRecordCount - ((searchVO.pageIndex-1) * searchVO.pageUnit) - (status.count-1)}"/>
 						</td>
 						<td class="tit">
+							<c:if test="${not empty result.atchFileNm}">
+								<c:url var="thumbUrl" value="/cmm/fms/getThumbImage.do">
+									<c:param name="thumbYn" value="Y"/>
+									<c:param name="atchFileNm" value="${result.atchFileNm}"/>
+								</c:url>
+								<img src="${thumbUrl}" alt=""/>
+							</c:if>
+						
 							<c:url var="viewUrl" value="/board/select.do${_BASE_PARAM}">
 								<c:param name="boardId" value="${result.boardId}"/>
-								<c:param name="pageIndex" value="${result.pageIndex}"/>
+								<c:param name="pageIndex" value="${searchVO.pageIndex}"/>
 							</c:url>
 							<a href="${viewUrl}">
 								<c:if test="${result.othbcAt eq 'Y'}">
-									<img src="/asset/BBSTMP_0000000000001/images/ico_board_lock.gif" alt="비밀 글 아이콘"/>
+									<img src="/asset/BBSTMP_0000000000001/images/ico_board_lock.gif" alt="비밀 글 아이콘"/> <!-- 자물쇠 모양 뜲 -->
 								</c:if>
 								<c:out value="${result.boardSj}"/>
 							</a>
@@ -119,6 +130,8 @@
 					</tr>
 				</c:forEach>
 				
+				
+				
 				<%-- 게시글이 없을 경우 --%>
 				<c:if test="${fn:length(resultList) == 0}">
 					<tr class="empty"><td colspan="5">검색 데이터가 없습니다.</td></tr>
@@ -134,12 +147,12 @@
 	</div>
 	<div class="btn-cont ar">
 		<a href="/board/boardRegist.do" class="btn spot">
-			<i class="ico-check-spot"></i>글쓰기
-		</a>
+			<i class="ico-check-spot"></i>글쓰기</a>
 	</div>
 	</div>
 </div>
 <script>
+// 내 행위가 정상적인 프로세스로 끝이 났다는 표현
 <c:if test="${not empty message}">alert("${message}");</c:if>
 </script>
 </body>
