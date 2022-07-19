@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.let.practice.service.impl.PracticeMapper">
+<!-- mapper 패키지 경로명 / namespace가 해당 mapper을 가지고 오게 해주는 경로 역할을 한다 -->
+	<resultMap id="practice" type="egovframework.let.practice.service.PracticeVO">
+		<result property="practiceId" column="PRT_ID"/>
+		<result property="practiceSb" column="PRT_SUB"/>
+		<result property="practiceCon" column="PRT_CON"/>
+		<result property="practiceUser" column="PRT_USER"/>
+		<result property="practiceTime" column="PRT_TIME"/>
+	</resultMap>
+		
+	<select id="selectPractice"	resultMap="practice">
+		SELECT
+		PRT_ID,	PRT_SUB, PRT_CON, PRT_USER, PRT_TIME
+		FROM PRACTICE
+		WHERE PRT_ID = #{practiceId}
+	</select>
+
+	<select id="selectPracticeList" resultType="egovMap">
+		SELECT
+		PRT_ID,	PRT_SUB, PRT_CON, PRT_USER, DATE_FORMAT(PRT_TIME, '%Y-%m-%d') AS PRT_TIME
+		<!-- 날짜 표기할 때 대소문자 구별 잘 해야한다, %y와 %Y가 다른 것처럼 -->
+		FROM PRACTICE
+		ORDER BY PRT_ID DESC
+		LIMIT #{recordCountPerPage} OFFSET #{firstIndex}
+		<!-- 페이지 수 표기해줌 -->
+	</select>
+	
+	<insert id="insertPractice"	parameterType="egovframework.let.practice.service.PracticeVO">
+		INSERT INTO PRACTICE (PRT_ID, PRT_SUB, PRT_CON, PRT_USER, PRT_TIME)
+		VALUES (#{practiceId}, #{practiceSb}, #{practiceCon}, #{practiceUser}, NOW())
+	</insert>
+	
+	<update id="updatePractice"	parameterType="egovframework.let.practice.service.PracticeVO">
+		UPDATE PRACTICE SET
+		PRT_SUB = #{practiceSb},
+		PRT_CON = #{practiceCon},
+		PRT_USER = #{practiceUser}
+		WHERE PRT_ID = #{practiceId}
+	</update>
+	
+	<delete id="deletePractice"	parameterType="egovframework.let.practice.service.PracticeVO">
+		DELETE FROM PRACTICE
+		WHERE PRT_ID = #{practiceId}
+	</delete>
+	
+	<select id="selectPracticeListCnt" resultType="java.lang.Integer">
+		SELECT COUNT(*) CNT
+		FROM PRACTICE
+	</select>
+</mapper>
