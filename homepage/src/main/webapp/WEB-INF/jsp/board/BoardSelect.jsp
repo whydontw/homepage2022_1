@@ -14,6 +14,9 @@
 <title>수업용 게시판</title>
 <!-- BBS Style -->
 <link href="/asset/BBSTMP_0000000000001/style.css" rel="stylesheet"/>
+<link href="/asset/front/css/style.css" rel="stylesheet"/>
+<!-- 내꺼 Style -->
+<link href="/asset/style/style.css" rel="stylesheet"/>
 <!-- 공통 Style -->
 <link href="/asset/LYTTMP_0000000000000/style.css" rel="stylesheet"/>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -21,7 +24,20 @@
 
 <!-- /head까지의 양식은 BoardSelectList의 양식과 동일함 -->
 
+
+<style>
+#header-image-main{
+    background: url('/asset/style/img/header_board.jpg');
+}
+</style>
+
+
 <body>
+
+
+<%@ include file="/WEB-INF/jsp/main/Header.jsp" %>
+
+
 <c:url var="_BASE_PARAM" value="">
 	<c:param name="menuNo" value="50"/>
 	<c:param name="pageIndex" value="${searchVO.pageIndex}"/>
@@ -100,6 +116,10 @@ $(document).ready(function(){
 	});
 });
 </script>
+
+<%@ include file="/WEB-INF/jsp/main/Footer.jsp" %>
+
+
 
 </body>
 </html>

@@ -114,4 +114,29 @@ public class TempController {
 			HttpServletRequest request, ModelMap model) throws Exception{
 		return "/temp/JstlImport";
 	}
+	
+	//ajax 샘플
+	@RequestMapping(value = "/temp/ajaxRegist.do")
+	public String tempAjaxRegist(@ModelAttribute("searchVO") TempVO searchVO,
+			HttpServletRequest request, ModelMap model) throws Exception{
+		return "/temp/TempAjaxRegist";
+	}
+	
+	//ajax 목록
+	@RequestMapping(value = "/temp/ajaxList.do")
+	public String tempAjaxList(@ModelAttribute("searchVO") TempVO searchVO,
+			HttpServletRequest request, ModelMap model) throws Exception{
+		//내용저장
+		if(!EgovStringUtil.isEmpty(searchVO.getTempVal())) {
+			tempService.insertTemp(searchVO);
+		}
+		
+		searchVO.setRecordCountPerPage(Integer.MAX_VALUE);
+		searchVO.setFirstIndex(0);
+		
+		List<EgovMap> resultList = tempService.selectTempList(searchVO);
+		model.addAttribute("resultList", resultList);
+		
+		return "/temp/TempAjaxList";
+	}
 }

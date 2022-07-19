@@ -11,7 +11,6 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-import org.springframework.util.IdGenerator;
 
 @Service("crudService")
 //어노테이션의 파일명의 첫글자는 소문자로 항상 시작한다
@@ -20,7 +19,7 @@ public class CrudServiceImpl extends EgovAbstractServiceImpl implements CrudServ
 	@Resource(name = "crudMapper")
 	private CrudMapper crudMapper;
 	
-	@Resource(name = "egovCrudIdGnrService")
+	@Resource(name = "egovMemberIdGnrService")
 	private EgovIdGnrService idgenService;	
 	
 //	@Resource(name = "tempDAO")

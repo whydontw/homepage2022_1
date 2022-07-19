@@ -1990,6 +1990,27 @@
     </bean>   
     <!-- TEMP END-->
     
+    
+    <!-- PRACTICE START-->
+    <bean name="egovPracticeIdGnrService"
+        class="egovframework.rte.fdl.idgnr.impl.EgovTableIdGnrServiceImpl"
+        destroy-method="destroy">
+        <property name="dataSource" ref="egov.dataSource" />
+        <property name="strategy"   ref="PracticeStrategy" /> <!-- 필수적으로 바꿔줘야함, 안그러면 위의 것 링크를 타버리니까 -->
+        <property name="blockSize"  value="10"/>
+        <property name="table"      value="IDS"/> <!-- table: 내가 접속한 table / IDS 테이블-->
+        <property name="tableName"  value="PRT_ID"/> <!-- tablename: column명 -->
+    </bean>
+
+    <bean name="PracticeStrategy" class="egovframework.rte.fdl.idgnr.impl.strategy.EgovIdGnrStrategyImpl">
+        <property name="prefix" value="PracticeID" />
+        <property name="cipers" value="3" /> <!-- 10자 중에 'CRUD_' 의 5글자를 뺀 value값 5 -->
+        <property name="fillChar" value="0" />
+    </bean>   
+    <!-- PRACTICE END-->
+    
+    
+    
         <!-- CRUD START-->
         <!-- TEMP id를 쓰면 데이터가 꼬일수가 있음 --> 
     <bean name="egovCrudIdGnrService"
@@ -2008,25 +2029,7 @@
         <property name="fillChar" value="0" />
     </bean>   
     <!-- CRUD END-->
-    
-        <!-- PRACTICE START-->
-    <bean name="egovPracticeIdGnrService"
-        class="egovframework.rte.fdl.idgnr.impl.EgovTableIdGnrServiceImpl"
-        destroy-method="destroy">
-        <property name="dataSource" ref="egov.dataSource" />
-        <property name="strategy"   ref="PracticeStrategy" /> <!-- 필수적으로 바꿔줘야함, 안그러면 위의 것 링크를 타버리니까 -->
-        <property name="blockSize"  value="10"/>
-        <property name="table"      value="IDS"/> <!-- table: 내가 접속한 table / IDS 테이블-->
-        <property name="tableName"  value="PRT_ID"/> <!-- tablename: column명 -->
-    </bean>
-
-    <bean name="PracticeStrategy" class="egovframework.rte.fdl.idgnr.impl.strategy.EgovIdGnrStrategyImpl">
-        <property name="prefix" value="PracticeID" />
-        <property name="cipers" value="3" /> <!-- 10자 중에 'CRUD_' 의 5글자를 뺀 value값 5 -->
-        <property name="fillChar" value="0" />
-    </bean>   
-    <!-- PRACTICE END-->
-    
+        
 	<!-- BOARD START-->
     <bean name="egovBoardIdGnrService"
         class="egovframework.rte.fdl.idgnr.impl.EgovTableIdGnrServiceImpl"
@@ -2044,4 +2047,22 @@
         <property name="fillChar" value="0" />
     </bean>   
     <!-- BOARD END-->
+    
+    <!-- MEMBER START -->
+        <bean name="egovMemberIdGnrService"
+        class="egovframework.rte.fdl.idgnr.impl.EgovTableIdGnrServiceImpl"
+        destroy-method="destroy">
+        <property name="dataSource" ref="egov.dataSource" />
+        <property name="strategy"   ref="memberStrategy" />
+        <property name="blockSize"  value="10"/>
+        <property name="table"      value="IDS"/>
+        <property name="tableName"  value="memId"/> <!-- tablename: column명 -->
+    </bean>
+
+    <bean name="memberStrategy" class="egovframework.rte.fdl.idgnr.impl.strategy.EgovIdGnrStrategyImpl">
+        <property name="prefix" value="memId_" />
+        <property name="cipers" value="14" />
+        <property name="fillChar" value="0" />
+    </bean>
+    <!-- MEMBER END -->
 </beans>

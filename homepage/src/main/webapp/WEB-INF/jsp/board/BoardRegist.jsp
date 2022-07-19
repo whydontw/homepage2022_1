@@ -14,11 +14,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport"
 	content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-<title>수업용 게시판</title>
+<title>글 작성하기</title>
 <!-- BBS Style -->
 <link href="/asset/BBSTMP_0000000000001/style.css" rel="stylesheet" />
+<link href="/asset/style/style.css" rel="stylesheet"/>
 <!-- 공통 Style -->
 <link href="/asset/LYTTMP_0000000000000/style.css" rel="stylesheet" />
+
+<link href="/asset/front/css/style.css" rel="stylesheet"/>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdn.tiny.cloud/1/9ru8dstfx7mlw5wlx81k96tvbyp43qh0bdiwha9p5yaqal2o/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <!-- ※ tiny 툴바가 제공하는 사이트 수정 가이드에 맞추어 사용하기 -->
@@ -99,8 +102,33 @@ $(function(){
     });
 });
 </script>
+
+<style>
+#header-image-main{
+    background: url('/asset/style/img/header_board.jpg');
+}
+
+table{
+line-height:50px;
+color: black;
+}
+</style>
+
 </head>
 <body>
+
+
+	<%@ include file="/WEB-INF/jsp/main/Header.jsp" %>
+
+    <section>
+		<div class="wrap-box">
+			<div class="title-box1">
+				<p>공연후기</p>
+			</div>
+		</div>
+	</section>
+
+<div id="board-edit-box" style="border: 4px solid gray; height:auto; width:1400px; border-radius:15px; margin:0px auto 100px auto; background-color:white;">
 
 <c:choose>
 	<c:when test="${not empty searchVO.boardId}">
@@ -195,17 +223,6 @@ $(function(){
 					<input type="file" name="file_3"/><br>
 					<input type="file" name="file_4"/><br>
 					<input type="file" name="file_5"/><br>
-					<input type="file" name="file_6"/><br>
-					<input type="file" name="file_7"/><br>
-					<input type="file" name="file_8"/><br>
-					<input type="file" name="file_9"/><br>
-					<input type="file" name="file_10"/><br>
-					<input type="file" name="file_11"/><br>
-					<input type="file" name="file_12"/><br>
-					<input type="file" name="file_13"/><br>
-					<input type="file" name="file_14"/><br>
-					<input type="file" name="file_15"/><br>
-					<input type="file" name="file_16"/><br>
 				</td>
 			</tr>
 		</tbody>
@@ -235,6 +252,10 @@ $(function(){
 	</form>
 </div>
 </div>
+
+
+</div>
+
 <script>
 $(document).ready(function(){	//click: 소스 다 렌더링 후에 적용하라는 것 
 	//게시글 등록
@@ -262,5 +283,10 @@ function regist() {
 	$("#boardCn").val(tinymce.activeEditor.getContent());
 }
 </script>
+
+
+<%@ include file="/WEB-INF/jsp/main/Footer.jsp" %>
+
+
 </body>
 </html>

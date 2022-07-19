@@ -3,6 +3,8 @@ package egovframework.let.main.web;
 import java.util.Map;
 
 import egovframework.com.cmm.ComDefaultVO;
+import egovframework.com.cmm.LoginVO;
+import egovframework.com.cmm.util.EgovUserDetailsHelper;
 import egovframework.let.cop.bbs.service.BoardVO;
 import egovframework.let.cop.bbs.service.EgovBBSManageService;
 
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -95,4 +98,43 @@ public class EgovMainController {
 		return "main/EgovMainView";
 	}
 
+	
+		// 22.06.29 메인페이지 로그인 페이지 ------------------------------
+	@RequestMapping(value="/mainpage.do")
+	public String index(HttpServletRequest request, ModelMap model) throws Exception{
+		
+		LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+		model.addAttribute("USER_INFO", user);
+		
+		return "main/MainPage";
+	}
+	
+		// 22.07.13 소개하기 page --------------------------
+	@GetMapping("/introduce.do")
+	public String main(HttpServletRequest request, ModelMap model) throws Exception{
+
+		LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+		model.addAttribute("USER_INFO", user);
+		
+		return "main/Introduce";
+	}
+	
+	
+	@GetMapping("/book.do")
+	public String book(HttpServletRequest request, ModelMap model) throws Exception{
+		
+		LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+		model.addAttribute("USER_INFO", user);
+		
+		return "book/Book";
+	}
+	
+	@GetMapping("/apply.do")
+	public String apply(HttpServletRequest request, ModelMap model) throws Exception{
+		
+		LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+		model.addAttribute("USER_INFO", user);
+		
+		return "main/Apply";
+	}
 }

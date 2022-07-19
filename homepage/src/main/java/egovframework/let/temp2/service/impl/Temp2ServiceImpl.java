@@ -11,7 +11,6 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-import org.springframework.util.IdGenerator;
 
 @Service("temp2Service")
 public class Temp2ServiceImpl extends EgovAbstractServiceImpl implements Temp2Service {

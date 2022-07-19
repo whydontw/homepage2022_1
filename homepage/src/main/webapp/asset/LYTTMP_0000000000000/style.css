@@ -50,11 +50,10 @@ html, body { min-height:100%; }
 html {
 	border:0;
 	outline:0;
-	font-size:62.5%;
+	/* font-size:62.5%; */
 }
 body {
-	font-size:14px;
-	line-height:1.5;
+	/* line-height:1.5; */
 	font-family:"Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", Helvetica,"돋움", Dotum, "굴림", Gulim, sans-serif;
 	background-color:transparent;
 	color:#555;
@@ -2048,12 +2047,12 @@ input.datepicker + span {
 .container {
 	box-sizing:border-box;
 	max-width:1200px;
-	margin:0 auto;
+	margin:30px auto; /*메뉴 겹침때문에 수정 22.07.15*/
 	position:relative;
 	overflow:hidden;
 }
 #contents{
-	padding-top:100px;
+	padding-top:50px;
 }
 .sub_wrap{margin:0 auto;padding:0;}
 .sub_wrap .container #contents {
@@ -3019,7 +3018,7 @@ h5.icon3 {
 table th {
 	font-weight:400;
 	color:#000;
-	background-color:#f7f7f7;
+	/* background-color:#f7f7f7; */
 }
 .total { margin-bottom:10px;text-align:left;padding-left:15px;background:url("images/common/icon_balloon.gif") no-repeat scroll left center transparent; width:auto;float:none;clear:both; }
 .total strong {
@@ -3243,7 +3242,7 @@ table.result_chart2 tbody td.bg{background:#edf3fa;}
 /* PAGING */
 #paging { width:100%; color:#000; font-style:normal; margin:50px 0 30px; font-weight:bold; text-align:center; }
 #paging img { vertical-align:middle; }
-#paging a { display:inline-block; width:31px; height:31px; line-height:31px; vertical-align:middle; border:none; margin:0 3px 0 2px; font-size:14px; color:#000; border-radius:1px;border-color:#fff;}
+#paging a { display:inline-block; width:31px; height:31px; line-height:31px; vertical-align:middle; border:none; margin:0 3px 0 2px; font-size:14px; color:white; border-radius:1px;border-color:#fff;}
 #paging a:hover { background-color:#fafafa; color:#000; }
 #paging a span { position:absolute; z-index:-1;visibility:hidden; }
 #paging .first { position:relative; background:url("images/common/btn_first.svg") center no-repeat; border-color:#dee2e6;}
@@ -5330,6 +5329,7 @@ li .img_order { padding-left:0;margin-top:10px; }
 	width:800px;
 	max-height:90vh;
 	overflow-y:hidden;
+	background:maroon;
 }
 .layer-popup.relative { 
 	position:relative;

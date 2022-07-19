@@ -1,7 +1,5 @@
 package egovframework.let.temp2.web;
 import java.util.List;
-import egovframework.let.temp.service.TempService;
-import egovframework.let.temp.service.TempVO;
 import egovframework.let.temp2.service.Temp2Service;
 import egovframework.let.temp2.service.Temp2VO;
 import egovframework.let.utl.fcc.service.EgovStringUtil;

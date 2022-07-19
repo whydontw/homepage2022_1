@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.let.member.service.impl.MemberDao">
+<!-- mapper 패키지 경로명 / namespace가 해당 mapper을 가지고 오게 해주는 경로 역할을 한다 -->
+	<resultMap id="member" type="egovframework.let.member.service.MemberVO">
+		<result property="memId" column="mem_id"/>
+		<result property="memPass" column="mem_pass"/>
+		<result property="memName" column="mem_name"/>
+		<result property="memEmail" column="mem_email"/>
+		<result property="memPhone" column="mem_phone"/>
+		<result property="memAge" column="mem_age"/>
+	</resultMap>
+		
+	<select id="selectMemberList" resultMap="member">
+		SELECT MEM_ID, MEM_PASS, MEM_NAME, MEM_EMAIL, MEM_PHONE, MEM_AGE FROM MEMBER ORDER BY MEM_ID;
+	</select>
+	<!-- **쿼리 제대로 짰는지 확인하기 위해서 sql 돌려보기!** -->
+	
+	<insert id="insertMember" parameterType="MemberVO">
+		INSERT INTO MEMBER (
+		MEM_ID, MEM_PASS, MEM_NAME, MEM_EMAIL, MEM_PHONE, MEM_AGE
+		)
+		VALUES (#{memId}, #{memPass}, #{memName}, #{memEmail}, #{memPhone}, #{memAge})
+	</insert>
+	
+<!-- 	<update id="updateMember" parameterType="egovframework.let.member.service.MemberVO"> -->
+<!-- 		UPDATE MEMBER SET -->
+<!-- 		MEMID = #{memId}, -->
+<!-- 		MEMPASS = #{memPass}, -->
+<!-- 		MEMNAME = #{memName}, -->
+<!-- 		MEMNAME = #{memPhone}, -->
+<!-- 		MEMNAME = #{memAge} -->
+<!-- 		WHERE MEMID = #{memId} -->
+<!-- 	</update> -->
+	
+<!-- 	<delete id="deleteMember" parameterType="egovframework.let.member.service.MemberVO"> -->
+<!-- 		DELETE FROM MEMBER WHERE MEMID = #{memId} -->
+<!-- 	</delete> -->
+	
+<!-- 	<select id="selectCrudListCnt" resultType="java.lang.Integer"> -->
+<!-- 		SELECT COUNT(*) FROM MEMBER -->
+<!-- 	</select> -->
+</mapper>

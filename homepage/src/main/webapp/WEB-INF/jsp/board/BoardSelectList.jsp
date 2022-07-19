@@ -18,14 +18,49 @@
 <meta http-equiv="Content-Language" content="ko">
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+
 <title>수업용 게시판</title>
+
 <!-- BBS Style -->
 <link href="/asset/BBSTMP_0000000000001/style.css" rel="stylesheet"/>
+<link href="/asset/front/css/style.css" rel="stylesheet"/>
+<link href="/asset/style/style.css" rel="stylesheet"/>
+
 <!-- 공통 Style -->
 <link href="/asset/LYTTMP_0000000000000/style.css" rel="stylesheet"/>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+ <!-- 구글 폰트 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Yeon+Sung&display=swap" rel="stylesheet">
+
 </head>
+<style>
+
+#bbs_wrap .list_table {
+color:white;
+}
+
+#header-image-main{
+    background: url('/asset/style/img/header_board.jpg');
+    }
+
+
+</style>
+
 <body>
+
+	<%@ include file="/WEB-INF/jsp/main/Header.jsp" %>
+
+    <section>
+		<div class="wrap-box">
+			<div class="title-box1">
+				<p>공연후기</p>
+			</div>
+		</div>
+
+<!-- -------------------------------------------------- -->
+
 
 <div class="container">
 	<div id="contents">
@@ -151,6 +186,14 @@
 	</div>
 	</div>
 </div>
+
+</section>
+
+
+<%@ include file="/WEB-INF/jsp/main/Footer.jsp" %>
+
+
+
 <script>
 // 내 행위가 정상적인 프로세스로 끝이 났다는 표현
 <c:if test="${not empty message}">alert("${message}");</c:if>
