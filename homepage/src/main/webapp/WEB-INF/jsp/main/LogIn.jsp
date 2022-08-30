@@ -13,7 +13,7 @@
 			<a href="/login/egovLoginUsr.do" class="login">로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="/member/add.do">회원가입</a> <!-- 로그인 창을 띄워라 -->
 		</c:when>
 		<c:otherwise>
-			<a href="/login/actionLogout.do"><c:out value="${USER_INFO.name}"/>님 로그아웃</a></a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="/member/list.do">회원관리</a> <!-- 로그인 창을 띄워라 -->
+			<a href="/login/actionLogout.do"><c:out value="${USER_INFO.name}"/> 님 로그아웃</a></a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="/member/list.do">회원관리</a> <!-- 로그인 창을 띄워라 -->
 		</c:otherwise>
 	</c:choose>
 		
@@ -41,6 +41,9 @@
 					</div>
 					<button type="submit" class="btn-login"><span>로그인</span></button>
 				</fieldset>
+				<div>
+					<a href="/join/memberRegist.do">회원가입하기</a>
+				</div>
 			</form>
 		</div>
 	</div>
@@ -77,6 +80,11 @@
 	
 	<c:if test="${not empty loginMessage}">
 		alert("${loginMessage}");
+	</c:if>
+	
+// 	회원신청이 정상적으로 완료되었습니다. 로그인 후 이용해주세요.
+	<c:if test="${not empty message}">
+		alert("${message}");
 	</c:if>
 	</script>
 	

@@ -19,7 +19,7 @@ public class CrudServiceImpl extends EgovAbstractServiceImpl implements CrudServ
 	@Resource(name = "crudMapper")
 	private CrudMapper crudMapper;
 	
-	@Resource(name = "egovMemberIdGnrService")
+	@Resource(name = "egovCrudIdGnrService")
 	private EgovIdGnrService idgenService;	
 	
 //	@Resource(name = "tempDAO")

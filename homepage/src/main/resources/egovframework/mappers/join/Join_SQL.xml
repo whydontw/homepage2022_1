@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.let.Join.service.impl.JoinMapper">
+<!-- mapper 패키지 경로명 / namespace가 해당 mapper을 가지고 오게 해주는 경로 역할을 한다 / 1빠로 바꿔줘야됨! -->
+<!-- 	<resultMap id="crud2" type="egovframework.let.crud2.service.Crud2VO"> -->
+<!-- 		<result property="crudId" column="CRUD_ID"/> -->
+<!-- 		<result property="crudSj" column="CRUD_SJ"/> -->
+<!-- 		<result property="crudCn" column="CRUD_CN"/> -->
+<!-- 		<result property="userNm" column="USER_NM"/> -->
+<!-- 		<result property="frstRegistPnttm" column="FRST_REGIST_PNTTM"/> -->
+<!-- 	</resultMap> -->
+		
+	<insert id="insertJoin">
+		INSERT INTO lettnemplyrinfo(
+			ESNTL_ID,
+			EMPLYR_ID,
+			USER_NM,
+			PASSWORD,
+			PASSWORD_HINT,
+			PASSWORD_CNSR,
+			EMPLYR_STTUS_CODE,
+			SBSCRB_DE
+		) values(
+			#{esntlId},
+			#{emplyrId},
+			#{userNm},
+			#{password},
+			#{passwordHint},
+			#{passwordCnsr},
+			'P',
+			NOW()
+		)		
+	</insert>
+	
+	<select id="duplicateCheck" resultType="java.lang.Integer">
+		SELECT COUNT(*) CNT
+		FROM lettnemplyrinfo
+		WHERE EMPLYR_ID = #{emplyrId}
+	</select>
+	
+</mapper>
