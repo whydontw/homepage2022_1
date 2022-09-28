@@ -2,14 +2,10 @@ package egovframework.let.member.service.impl;
 
 import java.util.List;
 
-import egovframework.let.crud.service.CrudService;
-import egovframework.let.crud.service.CrudVO;
 import egovframework.let.member.service.MemberService;
 import egovframework.let.member.service.MemberVO;
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import egovframework.rte.fdl.idgnr.EgovIdGnrService;
-import egovframework.rte.psl.dataaccess.util.EgovMap;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;

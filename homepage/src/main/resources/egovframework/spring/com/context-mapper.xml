@@ -10,7 +10,7 @@
 		value="classpath:/egovframework/mappers/config/sql-mapper-config.xml" /> <!-- config를 이 경로에 저장하겠다는 의미 -->
 	<property name="mapperLocations">
 		<list>
-			<value>classpath:/egovframework/mappers/**/*_SQL.xml</value>
+			<value>classpath:/egovframework/mappers/**/*_SQL.xml</value> <!-- mapper 파일 규칙! -->
 		</list>
 	</property>
 </bean>

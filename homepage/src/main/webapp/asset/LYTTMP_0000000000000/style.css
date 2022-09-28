@@ -1245,6 +1245,8 @@ input.datepicker + span {
 	position:relative;
 	vertical-align:middle;
 }
+
+/*
 .ui-datepicker { 
 	display:none; 
 	background-color:#fff;
@@ -1340,9 +1342,9 @@ input.datepicker + span {
 	font-weight:bold;
 	border:0;
 }
-/*.ui-datepicker th.ui-datepicker-week-end span[title=Sunday] {
+.ui-datepicker th.ui-datepicker-week-end span[title=Sunday] {  ~~> 주석 해놓기~
 	color:#dd3423;
-}*/ 
+}
 .ui-datepicker td:first-child a{
 	 color:#dd3423;
 }
@@ -1463,7 +1465,7 @@ input.datepicker + span {
 	box-sizing:border-box;
 	box-shadow:0 3px 7px rgba(0,0,0,.2);
 }
-
+*/
 
 /* 달력 */
 .mn-date .schedule_box {

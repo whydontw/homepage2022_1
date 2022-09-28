@@ -1,10 +1,8 @@
 package egovframework.let.member.service.impl;
 import java.util.List;
 
-import egovframework.let.crud.service.CrudVO;
 import egovframework.let.member.service.MemberVO;
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
-import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 
 @Mapper("memberDao")

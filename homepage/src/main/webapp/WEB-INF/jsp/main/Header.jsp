@@ -20,7 +20,7 @@
 	        <ul>
 	            <li><a href='<c:url value="/mainpage.do"/>'><h3>메인화면</h3></a></li>
 	            <li><a href='<c:url value="/introduce.do"/>'><h3>소개하기</h3></a></li>
-	            <li><a href='<c:url value="/book.do"/>'><h3>예매하기</h3></a></li>
+<%-- 	            <li><a href='<c:url value="/book.do"/>'><h3>예매하기</h3></a></li> --%>
 	            <li><a href='<c:url value="/apply.do"/>'><h3>대관신청</h3></a></li>
 	            <li><a href='<c:url value="/board/selectList.do"/>'><h3>공연후기</h3></a></li>
 	        </ul>

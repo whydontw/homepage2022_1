@@ -1,8 +1,6 @@
 package egovframework.let.member.service;
 
 import java.io.Serializable;
-import java.util.Date;
-
 import egovframework.com.cmm.ComDefaultVO;
 
 public class MemberVO extends ComDefaultVO implements Serializable {

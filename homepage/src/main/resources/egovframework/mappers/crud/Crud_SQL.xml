@@ -51,21 +51,21 @@
 		)
 	</insert>
 	
-<!-- 	<update id="updateCrud"	parameterType="egovframework.let.crud.service.CrudVO"> -->
-<!-- 		UPDATE letcrud SET -->
-<!-- 		CRUD_SJ = #{crudSj}, -->
-<!-- 		CRUD_CN = #{crudCn}, -->
-<!-- 		USER_NM = #{userNm} -->
-<!-- 		WHERE CRUD_ID = #{crudId} -->
-<!-- 	</update> -->
+	<update id="updateCrud"	parameterType="egovframework.let.crud.service.CrudVO">
+		UPDATE letcrud SET
+		CRUD_SJ = #{crudSj},
+		CRUD_CN = #{crudCn},
+		USER_NM = #{userNm}
+		WHERE CRUD_ID = #{crudId}
+	</update>
 	
-<!-- 	<delete id="deleteCrud"	parameterType="egovframework.let.crud.service.CrudVO"> -->
-<!-- 		DELETE FROM letcrud -->
-<!-- 		WHERE CRUD_ID = #{crudId} -->
-<!-- 	</delete> -->
+	<delete id="deleteCrud"	parameterType="egovframework.let.crud.service.CrudVO">
+		DELETE FROM letcrud
+		WHERE CRUD_ID = #{crudId}
+	</delete>
 	
-<!-- 	<select id="selectCrudListCnt" resultType="java.lang.Integer"> -->
-<!-- 		SELECT COUNT(*) CNT -->
-<!-- 		FROM letcrud -->
-<!-- 	</select> -->
+	<select id="selectCrudListCnt" resultType="java.lang.Integer">
+		SELECT COUNT(*) CNT
+		FROM letcrud
+	</select>
 </mapper>

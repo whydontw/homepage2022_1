@@ -137,4 +137,12 @@ public class EgovMainController {
 		
 		return "main/Apply";
 	}
+	
+	
+	
+	@GetMapping("/map.do")
+	public String apply() throws Exception{
+				
+		return "main/map";
+	}
 }
