@@ -94,5 +94,23 @@ public class ReservationApplyServiceImpl extends EgovAbstractServiceImpl impleme
 	public int selectReservationApplyListCnt(ReservationApplyVO vo) throws Exception {
 		return reservationApplyMapper.selectReservationApplyListCnt(vo);
 	}
+
+	@Override
+	public void updateReservationApply(ReservationApplyVO vo) throws Exception {
+		reservationApplyMapper.updateReservationApply(vo);
+		
+	}
+
+	@Override
+	public void deleteReservationApply(ReservationApplyVO vo) throws Exception {
+		reservationApplyMapper.deleteReservationApply(vo);
+	}
+	
+	@Override
+	public void updateReservationConfirm(ReservationApplyVO vo) throws Exception {
+		reservationApplyMapper.updateReservationConfirm(vo);
+	}
+	
+	
 	
 }

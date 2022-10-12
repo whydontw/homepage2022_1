@@ -35,7 +35,7 @@
 		FROM resvereqstinfo A
 		WHERE
 		
-		AND A.REQST_ID = #{reqstId} AND A.RESVE_ID = #{resveId}
+		A.REQST_ID = #{reqstId} AND A.RESVE_ID = #{resveId}
 		AND A.USE_AT = 'Y'
 	</select>
 	
@@ -122,5 +122,36 @@
 			</if>
 		</where>
 	</sql>
+	
+	<update id="updateReservationApply" parameterType="egovframework.let.rsv.service.ReservationApplyVO">
+		UPDATE resvereqstinfo SET
+		RESVE_DE = #{resveDe}
+		, CHARGER_NM = #{chargerNm}
+		, TELNO = #{telno}
+		, EMAIL = #{email}
+		<if test='confmSeCode != null and confmSeCode != ""'>
+			, CONFM_SE_CODE = #{confmSeCode}
+		</if>
+		, LAST_UPDT_PNTTM = NOW()
+		, LAST_UPDUSR_ID = #{userId}
+		WHERE REQST_ID = #{reqstId}
+	</update>
+	
+	<update id="deleteReservationApply" parameterType="egovframework.let.rsv.service.ReservationApplyVO">
+		UPDATE resvereqstinfo SET
+		USE_AT = 'N'
+		WHERE REQST_ID = #{reqstId}
+	</update>
+	
+	<update id="updateReservationConfirm" parameterType="egovframework.let.rsv.service.ReservationApplyVO">
+		UPDATE resvereqstinfo SET
+			CONFM_SE_CODE = #{confmSeCode}
+			, RETURN_RESN = #{returnResn}
+			, CONFMER_ID = #{userId}
+			, CONFM_PNTTM = NOW()
+			, LAST_UPDT_PNTTM = NOW()
+			, LAST_UPDUSR_ID = #{userId}
+		WHERE REQST_ID = #{reqstId}
+	</update>
 		
 </mapper>
