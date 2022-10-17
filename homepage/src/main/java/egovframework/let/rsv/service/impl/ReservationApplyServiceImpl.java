@@ -32,6 +32,9 @@ public class ReservationApplyServiceImpl extends EgovAbstractServiceImpl impleme
 	
 	@Resource(name = "reservationService")
 	private ReservationService reservationService;
+	
+	@Resource(name = "egovReqTempIdGnrService")
+	private EgovIdGnrService idgenTempService;
 
 	
 	//예약가능 여부 확인

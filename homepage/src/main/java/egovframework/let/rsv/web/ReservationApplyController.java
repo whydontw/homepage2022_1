@@ -1,7 +1,10 @@
 package egovframework.let.rsv.web;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -220,4 +224,7 @@ public class ReservationApplyController {
 		reservationApplyService.deleteReservationApply(searchVO);
 		return "forward:/rsv/selectApplyList.do";
 	}
+	
+
+	
 }

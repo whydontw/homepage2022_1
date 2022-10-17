@@ -34,13 +34,17 @@ package egovframework.let.utl.fcc.service;
  */
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.net.URLEncoder;
 import java.security.SecureRandom;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.propertyeditors.URLEditor;
 
 public class EgovStringUtil {
 
@@ -891,5 +895,35 @@ public class EgovStringUtil {
 			return date.substring(0, 4).concat("-").concat(date.substring(4, 6)).concat("-").concat(date.substring(6, 8));
 		else
 			return "";
+	}
+	
+	
+	//22.10.17 브라우저별 인코딩된 파일명 변환
+	public static String getConvertFileName(HttpServletRequest request, String fileName) throws Exception{
+		String header = request.getHeader("User-Agent");
+		String encodeFilename = "";
+		if(header.indexOf("MSIE") > -1) {
+			encodeFilename = URLEncoder.encode(fileName, "UTF-8").replaceAll("\\+", "%20");
+		}else if(header.indexOf("Trident") > -1) {
+			encodeFilename = URLEncoder.encode(fileName, "UTF-8").replaceAll("\\+", "%20");
+		}else if(header.indexOf("Firefox") > -1) {
+			encodeFilename = "\"" + new String(fileName.getBytes("UTF-8"), "8859_1") + "\"";
+		}else if(header.indexOf("Opera") > -1) {
+			encodeFilename = "\"" + new String(fileName.getBytes("UTF-8"), "8859_1") + "\"";
+		}else if(header.indexOf("Chrome") > -1) {
+			StringBuffer sb = new StringBuffer();
+			for(int i = 0; i < fileName.length(); i++) {
+				char c = fileName.charAt(i);
+				if(c > '~') {
+					sb.append(URLEncoder.encode("" + c, "UTF-8"));
+				}else {
+					sb.append(c);
+				}
+			}
+			encodeFilename = sb.toString();
+		}else {
+			encodeFilename = "download";
+		}
+		return encodeFilename;
 	}
 }
