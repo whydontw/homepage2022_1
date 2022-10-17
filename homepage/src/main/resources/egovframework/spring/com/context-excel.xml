@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 22.10.17 java excel 다운을 위한 세팅 추가 -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:p="http://www.springframework.org/schema/p"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+<bean id="excelDownloadView" class="egovframework.com.cmm.service.ExcelDownloadView" /> <!-- class 안 주소는 자바파일 만드는 위치 -->
+
+<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+	<property name="order" value="0" />
+</bean>
+   
+</beans>
