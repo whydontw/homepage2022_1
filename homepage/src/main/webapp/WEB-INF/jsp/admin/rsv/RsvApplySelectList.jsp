@@ -108,6 +108,7 @@
 						<a href="${listUrl }" class="btn">목록</a>
 					</div>
 					<div class="excelUploadBox">
+						<!-- post ~~> 첨부파일은 무조건 post로 보내야 한다 -->
 						<form action="/admin/rsv/excelUpload.json" id="excelForm" name="excelForm" enctype="multipart/form-data" method="post">
 							<input type="hidden" name="resveId" id="resveId" value="${param.resveId }" />					
 							<input type="hidden" name="resveDE" value="TYPE01" />
@@ -160,7 +161,7 @@
 			
 			if(result.success){
 				$("#excel").hide();
-				window.location.reload();
+				window.location.reload(); //== 페이지를 다시 로드(순수 자바스크립트)
 			}else{
 			//alert(result.message);
 			for(i = 0; i < result.data.length; i++) {
