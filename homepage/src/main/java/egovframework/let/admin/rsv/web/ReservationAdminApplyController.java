@@ -182,20 +182,20 @@ public class ReservationAdminApplyController {
 	}
 	
 	//엑셀업로드
-	@RequestMapping(value = "/admin/rsv/excelUpload.json", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/rsv/excelUpload.json", method = RequestMethod.POST) //첨부파일은 post로 보내야한다
 	public @ResponseBody JsonResponse excelUpload(@ModelAttribute ReservationApplyVO searchVO,
-			ModelMap model, MultipartHttpServletRequest multiRequest, HttpServletRequest request,
+			ModelMap model, MultipartHttpServletRequest multiRequest, HttpServletRequest request, //MultipartHttpServletRequest: 첨부파일 받아줌
 			HttpServletResponse response) throws Exception {
 		
 		JsonResponse res = new JsonResponse();
-		res.setSuccess(true);
+		res.setSuccess(true); //에러시 false
 		
 		
 		try {
 			List<FileVO> result = null;
 			final Map<String, MultipartFile> files = multiRequest.getFileMap();
-			if(!files.isEmpty()) {
-				result = fileUtil.parseFileInf(files, "TEMP_", 0, null, "rsvFileStorePath");
+			if(!files.isEmpty()) {											//storePath
+				result = fileUtil.parseFileInf(files, "TEMP_", 0, null, "rsvFileStorePath"); //excel 파일을 저장하는 방식
 				Map<String, Object> resultMap = new HashMap<>();
 				
 				for(FileVO file : result) {
